@@ -41,7 +41,7 @@ def gameOver():
     playSurface.blit(gameOverScoreSurf, gameOverScoreRect)
     playSurface.blit(gameOverSurf, gameOverRect)
     pygame.display.flip()
-
+    print score
     time.sleep(3)
     pygame.quit()
     sys.exit()
@@ -52,7 +52,7 @@ while True:
 
     	gameOverSurf = gameOverFont.render('3', True, greyColour)
     	gameOverRect = gameOverSurf.get_rect()
-    	gameOverRect.midtop = (320, 200)
+    	gameOverRect.midtop = (320, 175)
 
 	playSurface.fill(blackColour)
     	playSurface.blit(gameOverSurf, gameOverRect)
@@ -60,26 +60,28 @@ while True:
 	time.sleep(1)
     	gameOverSurf = gameOverFont.render('2', True, greyColour)
     	gameOverRect = gameOverSurf.get_rect()
-    	gameOverRect.midtop = (320, 200)
+    	gameOverRect.midtop = (320, 175)
 	time.sleep(1)
 	playSurface.fill(blackColour)
     	playSurface.blit(gameOverSurf, gameOverRect)
 	pygame.display.flip()
     	gameOverSurf = gameOverFont.render('1', True, greyColour)
     	gameOverRect = gameOverSurf.get_rect()
-    	gameOverRect.midtop = (320, 200)
+    	gameOverRect.midtop = (320, 175)
 	time.sleep(1)
 	playSurface.fill(blackColour)
     	playSurface.blit(gameOverSurf, gameOverRect)
 	pygame.display.flip()
 	time.sleep(1)
 	displayText = 1
+
     if obstPosition[1] < 25:
     	x = random.randint(10,505)
     	obstPosition = [x,475]
     	length += random.randint(1,5)
 	score += 1
 	speed += 0.1
+	pygame.display.flip()
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
